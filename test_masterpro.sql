@@ -6,7 +6,7 @@ LS_Products join ls_productgroups on LS_ProductGroups.s_ID = LS_Products.s_Produ
 --Làm thế nào để lấy danh sách khách hàng ?
 SELECT * FROM dbo.LS_Objects
 --Lấy các thông tin tương ứng với trường hiển thị trên Form khách hàng?
-SELECT s_Object_ID, s_Name, s_Phone1,s_Address, m_CurIncome, FROM dbo.LS_Objects
+SELECT s_Object_ID, s_Name, s_Phone1,s_Address, s_Email, s_Note  FROM dbo.LS_Objects
 --Làm thế nào để lấy danh sách nhân viên ?
 SELECT * FROM dbo.LS_Employees
 --Làm thế nào để lấy danh sách người dùng ?
@@ -38,6 +38,7 @@ SELECT * FROM dbo.PR_OutcomePaymentType
 -- Lấy danh sách hóa đơn bán hàng đã thu tiền ?
 SELECT * FROM LS_Orders 
 --18. Lấy danh sách hóa đơn thu tiền tương ứng cho một hóa đơn bán ở trạng thái "Đã thu" ?
+
 --19. Lấy danh sách hóa đơn bán hàng tương ứng cho một hóa đơn thu tiền ?
 --20. Lấy danh sách hóa đơn đặt hàng nhập ?
 GO 
@@ -61,9 +62,9 @@ SELECT * FROM dbo.LS_Trans
 --29. Lấy danh sách hóa đơn luân chuyển tiền tệ?
 SELECT * FROM dbo.Ls_TransCurr
 --30. Lấy danh sách hóa đơn chi tiền theo: tiền mặt, chuyển khoản, luân chuyển tiền tệ?
-SELECT * FROM dbo.PR_OutcomePaymentType
+SELECT * FROM dbo.LS_Outcome
 --31. Lấy danh sách hóa đơn thu tiền theo: tiền mặt, chuyển khoản, luân chuyển tiền tệ?
-SELECT * FROM dbo.PR_IncomePaymentType
+SELECT * FROM dbo.LS_Income
 --------- Phần nâng cao -------
 --33. Tính doanh số bán hàng trong ngày? theo khoảng thời gian tùy chọn?
 SELECT SUM(m_Ordertotal) AS DoanhSoBanHang
@@ -94,8 +95,7 @@ ORDER BY TongTienTichLuy DESC;  -- Sắp xếp theo tổng tiền tích lũy gi�
 --	- Tổng thu trên hóa đơn
 --	- Tổng thu khác
 --	- Tổng chi trên hóa đơn
---	- Tổng chi khác
-
+--	- Tổng chi khác 
 ...
 39. Viết báo cáo tính giá vốn sản phẩm theo giá vốn bình quân
 40. Viết báo cáo tính giá vốn sản phẩm theo giá vốn FIFO
